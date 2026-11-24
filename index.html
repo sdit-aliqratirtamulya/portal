@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Terpadu Digital — SD IT AL-IQRA Tirtamulya</title>
+    <meta name="description" content="Gerbang utama akses aplikasi pembelajaran, rapor digital, SPMB, infaq, dan monitoring asesmen SD IT AL-IQRA Kp. Tangkil Desa Citarik Kec. Tirtamulya Kab. Karawang.">
+
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(6, 78, 59, 0.08)',
+                        'card': '0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 0 1px 1px rgba(15, 23, 42, 0.03)',
+                        'card-hover': '0 20px 35px -10px rgba(6, 95, 70, 0.14), 0 0 1px 1px rgba(16, 185, 129, 0.25)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.07) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(245, 158, 11, 0.06) 0px, transparent 45%);
+        }
+
+        .glass-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .hero-mesh {
+            background-color: #064e3b;
+            background-image: 
+                radial-gradient(at 88% 15%, rgba(16, 185, 129, 0.45) 0px, transparent 55%),
+                radial-gradient(at 12% 85%, rgba(245, 158, 11, 0.22) 0px, transparent 50%),
+                linear-gradient(135deg, #064e3b 0%, #065f46 55%, #047857 100%);
+        }
+
+        .islamic-grid {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .app-card {
+            transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.28s ease;
+        }
+
+        .app-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .modal-backdrop {
+            transition: opacity 0.25s ease;
+        }
+        .modal-panel {
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col selection:bg-brand-600 selection:text-white">
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-40 glass-header border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between gap-4">
+            <!-- Identitas Sekolah + 3 Logo Resmi -->
+            <div class="flex items-center gap-3 sm:gap-4 min-w-0">
+                <div class="flex items-center gap-1.5 sm:gap-2 shrink-0 bg-slate-50/90 border border-slate-200/80 px-2.5 py-1.5 rounded-2xl shadow-2xs">
+                    <!-- Logo Kabupaten Karawang -->
+                    <img src="https://lh3.googleusercontent.com/d/1fTg5PehSAEjqJPvnZrHdURlcLXovDa2X"
+                         alt="Logo Kabupaten Karawang"
+                         title="Pemerintah Kabupaten Karawang"
+                         onerror="this.style.display='none'"
+                         class="w-7 h-7 sm:w-8 sm:h-8 object-contain">
+                    <!-- Logo Tut Wuri Handayani -->
+                    <img src="https://lh3.googleusercontent.com/d/1o7yon4WjQsrgLk7WGntsIae2-QHSrGYl"
+                         alt="Logo Tut Wuri Handayani"
+                         title="Kementerian Pendidikan Dasar dan Menengah"
+                         onerror="this.style.display='none'"
+                         class="w-7 h-7 sm:w-8 sm:h-8 object-contain">
+                    <div class="h-5 w-px bg-slate-200 mx-0.5"></div>
+                    <!-- Logo SD IT AL-IQRA -->
+                    <img src="https://lh3.googleusercontent.com/d/1HvHb5kJgvETiduQl6bZtsQvsb2acWzHa"
+                         alt="Logo SD IT AL-IQRA"
+                         title="SD IT AL-IQRA Tirtamulya"
+                         onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=AI&background=059669&color=fff&bold=true';"
+                         class="w-8 h-8 sm:w-9 sm:h-9 object-contain rounded-lg">
+                </div>
+
+                <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                        <h1 class="font-display font-extrabold text-base sm:text-lg tracking-tight text-slate-900 truncate">
+                            SD IT AL-IQRA
+                        </h1>
+                        <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-brand-50 text-brand-700 border border-brand-200">
+                            Portal Terpadu
+                        </span>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-slate-500 truncate">
+                        Kp. Tangkil, Desa Citarik, Kec. Tirtamulya, Kab. Karawang
+                    </p>
+                </div>
+            </div>
+
+            <!-- Kontrol Kanan: Role Login & Bantuan -->
+            <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+                <button type="button" id="active-role-btn" onclick="openRoleModal()"
+                        class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 transition-all cursor-pointer shadow-2xs">
+                    <i id="active-role-icon" class="fa-solid fa-lock text-amber-600"></i>
+                    <span id="active-role-label">Belum Login (Klik Masuk)</span>
+                </button>
+
+                <button type="button" onclick="openOperatorModal()" title="Bantuan Operator Sekolah"
+                        class="inline-flex items-center justify-center w-9 h-9 sm:w-auto sm:px-3.5 sm:py-2 rounded-xl text-xs font-semibold bg-white hover:bg-slate-50 text-slate-700 border border-slate-200/90 transition-colors cursor-pointer">
+                    <i class="fa-solid fa-headset text-brand-600 sm:mr-1.5"></i>
+                    <span class="hidden sm:inline">Bantuan</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-9">
+
+        <!-- Bento Hero Section -->
+        <section class="hero-mesh relative overflow-hidden rounded-3xl p-6 sm:p-9 lg:p-10 text-white shadow-soft mb-7">
+            <div class="islamic-grid absolute inset-0 pointer-events-none"></div>
+            
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Kolom Kiri: Sambutan & Pencarian -->
+                <div class="lg:col-span-7 space-y-5">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-emerald-100 text-xs font-semibold backdrop-blur-xs">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Ekosistem Digital Terintegrasi • Tahun Ajaran 2026/2027</span>
+                    </div>
+
+                    <h2 class="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl leading-tight tracking-tight">
+                        Satu Pintu Akses Layanan Pendidikan & Administrasi
+                    </h2>
+
+                    <p class="text-emerald-100/90 text-sm sm:text-base leading-relaxed max-w-2xl">
+                        Selamat datang di Portal Resmi <strong>SD IT AL-IQRA</strong>. Silakan masuk sesuai peran Anda untuk mengakses pembelajaran, pengolahan nilai rapor ASAS, pendaftaran SPMB, dan administrasi sekolah.
+                    </p>
+
+                    <!-- Search Box -->
+                    <div class="relative max-w-xl pt-1">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 mt-0.5 text-slate-400 text-sm"></i>
+                        <input type="text" id="search-input" onkeyup="handleSearch(this.value)"
+                               placeholder="Cari layanan (contoh: e-RDA, Smart LMS, SPMB, Infaq)..."
+                               class="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-white text-slate-800 placeholder-slate-400 text-sm font-medium shadow-lg focus:outline-none focus:ring-4 focus:ring-emerald-400/30">
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Bento Ringkasan Status Sistem -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-5 space-y-4">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                            <span class="text-xs font-bold uppercase tracking-wider text-emerald-200">Status Ekosistem</span>
+                            <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-300">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Semua Sistem Online
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-black/15 rounded-xl p-3.5 border border-white/10">
+                                <p class="text-2xl font-display font-extrabold text-white">5</p>
+                                <p class="text-xs text-emerald-100/80 mt-0.5">Aplikasi Terhubung</p>
+                            </div>
+                            <div class="bg-black/15 rounded-xl p-3.5 border border-white/10">
+                                <p class="text-2xl font-display font-extrabold text-amber-300">4</p>
+                                <p class="text-xs text-emerald-100/80 mt-0.5">Tingkat Akses Peran</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-emerald-950/40 rounded-xl p-3.5 border border-emerald-400/20 flex items-center justify-between gap-3">
+                            <div class="text-xs">
+                                <p class="font-bold text-white">Alur Rapor Terpadu</p>
+                                <p class="text-emerald-200/80 mt-0.5">e-RAPOR ASAS &rarr; Tarik Data e-RDA</p>
+                            </div>
+                            <button type="button" onclick="openRaporFlowModal()"
+                                    class="px-3 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-900 text-xs font-bold shrink-0 transition-colors cursor-pointer">
+                                Lihat Alur
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner Pengumuman Penting Sekolah -->
+        <div id="announcement-banner" class="mb-7 rounded-2xl bg-gradient-to-r from-amber-50 via-yellow-50/90 to-emerald-50 border border-amber-200/90 p-4 sm:px-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-2xs">
+            <div class="flex items-start sm:items-center gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-700 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
+                    <i class="fa-solid fa-bullhorn text-base"></i>
+                </div>
+                <div>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="px-2 py-0.5 rounded-md bg-amber-500 text-white text-[10px] font-extrabold uppercase tracking-wider">Info Akademik</span>
+                        <span class="text-xs font-bold text-slate-800">Jadwal Pengolahan Rapor ASAS Ganjil 2026/2027</span>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                        Bapak/Ibu Guru diharapkan menyelesaikan input nilai di <strong>e-RAPOR ASAS</strong> terlebih dahulu sebelum melakukan tarik data, pengisian absensi, kokurikuler, ekskul & cetak rapor di <strong>e-RDA</strong>.
+                    </p>
+                </div>
+            </div>
+            <button type="button" onclick="document.getElementById('announcement-banner').classList.add('hidden')" title="Tutup pengumuman"
+                    class="self-end sm:self-center text-slate-400 hover:text-slate-700 p-1.5 rounded-lg hover:bg-black/5 transition-colors cursor-pointer">
+                <i class="fa-solid fa-xmark text-sm"></i>
+            </button>
+        </div>
+
+        <!-- Filter Kategori Layanan (Segmented Pill Bar) -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div class="inline-flex flex-wrap items-center gap-1.5 bg-white p-1.5 rounded-2xl border border-slate-200/80 shadow-2xs">
+                <button type="button" onclick="filterCategory('all')" data-cat="all"
+                        class="cat-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer bg-brand-700 text-white shadow-xs">
+                    Semua Layanan (<span id="count-all">5</span>)
+                </button>
+                <button type="button" onclick="filterCategory('asesmen')" data-cat="asesmen"
+                        class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+                    Asesmen & Rapor
+                </button>
+                <button type="button" onclick="filterCategory('pembelajaran')" data-cat="pembelajaran"
+                        class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+                    Pembelajaran
+                </button>
+                <button type="button" onclick="filterCategory('administrasi')" data-cat="administrasi"
+                        class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+                    Administrasi & SPMB
+                </button>
+            </div>
+
+            <div id="role-status-hint" class="text-xs text-slate-500 flex items-center gap-1.5">
+                <i class="fa-solid fa-circle-info text-amber-500"></i>
+                <span>Klik kartu layanan untuk memilih peran & membuka akses.</span>
+            </div>
+        </div>
+
+        <!-- Grid Kartu Aplikasi -->
+        <div id="apps-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- 1. e-RDA & e-RAPOR ASAS (Terintegrasi 2 Tahap) -->
+            <article class="app-card bg-white rounded-3xl p-6 border border-slate-200/80 shadow-card hover:shadow-card-hover flex flex-col justify-between"
+                     data-category="asesmen"
+                     data-allowed-roles="operator,guru"
+                     data-keywords="erda e-rda erapor e-rapor asas nilai cetak rapor absensi kokurikuler ekstrakurikuler">
+                <div>
+                    <div class="flex items-start justify-between gap-3 mb-4">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-600 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-solid fa-file-signature"></i>
+                        </div>
+                        <div class="flex flex-col items-end gap-1.5">
+                            <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                Asesmen & Rapor
+                            </span>
+                            <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Terintegrasi 2 Tahap
+                            </span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-display font-bold text-lg text-slate-900 mb-2">
+                        e-RDA & e-RAPOR ASAS
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Pengolahan rapor terpadu: input nilai mata pelajaran pada <strong>e-RAPOR ASAS</strong>, lalu tarik data ke <strong>e-RDA</strong> untuk pengisian absensi, kokurikuler, ekstrakurikuler, hingga cetak rapor.
+                    </p>
+
+                    <div class="flex flex-wrap gap-1.5 mb-5">
+                        <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[11px] font-medium">Operator</span>
+                        <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[11px] font-medium">Kepsek</span>
+                        <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[11px] font-medium">Guru & Wali Kelas</span>
+                    </div>
+                </div>
+
+                <button type="button" onclick="handleCardAction('rapor')"
+                        class="card-action-btn w-full py-3 px-4 rounded-2xl bg-slate-900 hover:bg-brand-700 text-white text-xs font-bold transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-lock text-amber-400"></i>
+                    <span>Login untuk Akses</span>
+                </button>
+            </article>
+
+            <!-- 2. Smart LMS -->
+            <article class="app-card bg-white rounded-3xl p-6 border border-slate-200/80 shadow-card hover:shadow-card-hover flex flex-col justify-between"
+                     data-category="pembelajaran"
+                     data-allowed-roles="operator,guru,siswa"
+                     data-keywords="smart lms learning management system materi tugas kelas belajar siswa guru">
+                <div>
+                    <div class="flex items-start justify-between gap-3 mb-4">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="flex flex-col items-end gap-1.5">
+                            <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
+                                Pembelajaran
+                            </span>
+                            <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Aktif
+                            </span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-display font-bold text-lg text-slate-900 mb-2">
+                        Smart LMS
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Sistem Manajemen Pembelajaran digital SD IT AL-IQRA untuk distribusi materi ajar, penugasan interaktif, serta evaluasi pembelajaran siswa secara daring.
+                    </p>
+
+                    <div class="flex flex-wrap gap-1.5 mb-5">
+                        <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[11px] font-medium">Guru</span>
+                        <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[11px] font-medium">Siswa & Wali Murid</span>
+                        <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[11px] font-medium">Operator</span>
+                    </div>
+                </div>
+
+                <button type="button" onclick="handleCardAction('https://sdit-aliqratirtamulya.github.io/lms-4a/', 'Smart LMS')"
+                        class="card-action-btn w-full py-3 px-4 rounded-2xl bg-slate-900 hover:bg-blue-600 text-white text-xs font-bold transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-lock text-amber-400"></i>
+                    <span>Login untuk Akses</span>
+                </button>
+            </article>
+
+            <!-- 3. Monitoring ASAS Ganjil 2627 -->
+            <article class="app-card bg-white rounded-3xl p-6 border border-slate-200/80 shadow-card hover:shadow-card-hover flex flex-col justify-between"
+                     data-category="asesmen"
+                     data-allowed-roles="operator,guru"
+                     data-keywords="monitoring asas 2026 2027 ganjil ujian pengawas progres">
+                <div>
+                    <div class="flex items-start justify-between gap-3 mb-4">
+                        <div class="w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div class="flex flex-col items-end gap-1.5">
+                            <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                                Asesmen & Rapor
+                            </span>
+                            <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Aktif
+                            </span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-display font-bold text-lg text-slate-900 mb-2">
+                        Monitoring ASAS 2026/2027
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Dasbor pemantauan real-time pelaksanaan Asesmen Sumatif Akhir Semester (ASAS) Ganjil, kehadiran peserta ujian, serta progres ketuntasan input nilai guru.
+                    </p>
+
+                    <div class="flex flex-wrap gap-1.5 mb-5">
+                        <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[11px] font-medium">Operator</span>
+                        <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[11px] font-medium">Kepsek</span>
+                        <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[11px] font-medium">Panitia / Guru</span>
+                    </div>
+                </div>
+
+                <button type="button" onclick="handleCardAction('https://sdit-aliqratirtamulya.github.io/monitoring_asas/', 'Monitoring ASAS Ganjil 2627')"
+                        class="card-action-btn w-full py-3 px-4 rounded-2xl bg-slate-900 hover:bg-indigo-600 text-white text-xs font-bold transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-lock text-amber-400"></i>
+                    <span>Login untuk Akses</span>
+                </button>
+            </article>
+
+            <!-- 4. SPMB 2027/2028 -->
+            <article class="app-card bg-white rounded-3xl p-6 border border-slate-200/80 shadow-card hover:shadow-card-hover flex flex-col justify-between"
+                     data-category="administrasi"
+                     data-allowed-roles="operator,guru,siswa,umum"
+                     data-keywords="spmb ppdb pendaftaran murid baru siswa baru 2027 2028">
+                <div>
+                    <div class="flex items-start justify-between gap-3 mb-4">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+                        <div class="flex flex-col items-end gap-1.5">
+                            <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
+                                Administrasi & SPMB
+                            </span>
+                            <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Pendaftaran Dibuka
+                            </span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-display font-bold text-lg text-slate-900 mb-2">
+                        SPMB 2027/2028
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Sistem Penerimaan Murid Baru (SPMB) daring SD IT AL-IQRA Tahun Ajaran 2027/2028. Melayani formulir pendaftaran calon peserta didik dan informasi persyaratan.
+                    </p>
+
+                    <div class="flex flex-wrap gap-1.5 mb-5">
+                        <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[11px] font-medium">Umum / Calon Wali</span>
+                        <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[11px] font-medium">Panitia SPMB</span>
+                    </div>
+                </div>
+
+                <button type="button" onclick="handleCardAction('https://sdit-aliqratirtamulya.github.io/spmb_2027_2028/', 'SPMB 2027/2028')"
+                        class="card-action-btn w-full py-3 px-4 rounded-2xl bg-slate-900 hover:bg-amber-600 text-white text-xs font-bold transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-lock text-amber-400"></i>
+                    <span>Login untuk Akses</span>
+                </button>
+            </article>
+
+            <!-- 5. Sistem Infaq Sekolah -->
+            <article class="app-card bg-white rounded-3xl p-6 border border-slate-200/80 shadow-card hover:shadow-card-hover flex flex-col justify-between"
+                     data-category="administrasi"
+                     data-allowed-roles="operator,guru"
+                     data-keywords="infaq administrasi keuangan sedekah laporan rekapitulasi">
+                <div>
+                    <div class="flex items-start justify-between gap-3 mb-4">
+                        <div class="w-14 h-14 rounded-2xl bg-teal-50 border border-teal-100 text-teal-600 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </div>
+                        <div class="flex flex-col items-end gap-1.5">
+                            <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-teal-50 text-teal-700 border border-teal-200">
+                                Administrasi & SPMB
+                            </span>
+                            <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-500">
+                                <i class="fa-solid fa-shield-halved text-teal-600"></i> Internal Sekolah
+                            </span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-display font-bold text-lg text-slate-900 mb-2">
+                        Sistem Infaq Sekolah
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Aplikasi pencatatan, rekapitulasi, dan transparansi pengelolaan infaq siswa SD IT AL-IQRA. Khusus diakses oleh jajaran internal sekolah.
+                    </p>
+
+                    <div class="flex flex-wrap gap-1.5 mb-5">
+                        <span class="px-2 py-0.5 rounded-md bg-teal-50 text-teal-700 border border-teal-100 text-[11px] font-semibold">Operator</span>
+                        <span class="px-2 py-0.5 rounded-md bg-teal-50 text-teal-700 border border-teal-100 text-[11px] font-semibold">Kepsek</span>
+                        <span class="px-2 py-0.5 rounded-md bg-teal-50 text-teal-700 border border-teal-100 text-[11px] font-semibold">Guru</span>
+                    </div>
+                </div>
+
+                <button type="button" onclick="handleCardAction('https://sdit-aliqratirtamulya.github.io/infaq/', 'Sistem Infaq Sekolah')"
+                        class="card-action-btn w-full py-3 px-4 rounded-2xl bg-slate-900 hover:bg-teal-700 text-white text-xs font-bold transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-lock text-amber-400"></i>
+                    <span>Login untuk Akses</span>
+                </button>
+            </article>
+
+        </div>
+
+        <!-- Empty State saat Pencarian Tidak Ditemukan -->
+        <div id="empty-state" class="hidden text-center py-14 px-4 bg-white rounded-3xl border border-slate-200/80 mt-4">
+            <div class="w-14 h-14 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center text-2xl mx-auto mb-3">
+                <i class="fa-solid fa-folder-open"></i>
+            </div>
+            <h4 class="font-display font-bold text-base text-slate-800">Layanan tidak ditemukan</h4>
+            <p class="text-xs text-slate-500 mt-1 max-w-md mx-auto">
+                Tidak ada aplikasi yang sesuai dengan kata kunci pencarian atau hak akses peran Anda saat ini.
+            </p>
+            <button type="button" onclick="resetFilters()"
+                    class="mt-4 px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition-colors cursor-pointer">
+                Tampilkan Semua Layanan
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200/80 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <div class="text-center sm:text-left">
+                <p class="font-bold text-slate-800">SD IT AL-IQRA Tirtamulya</p>
+                <p class="mt-0.5">Kp. Tangkil, Desa Citarik, Kec. Tirtamulya, Kab. Karawang — Jawa Barat</p>
+            </div>
+            <div class="text-center sm:text-right">
+                <p>&copy; 2026 Tim IT & Operator SD IT AL-IQRA. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================================================================
+         MODAL 1: PEMILIHAN PERAN & LOGIN PIN (TERHUBUNG GOOGLE SHEETS)
+         ========================================================================= -->
+    <div id="role-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs modal-backdrop">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl border border-slate-100 modal-panel max-h-[92vh] overflow-y-auto">
+            <div class="flex items-start justify-between gap-3 mb-5">
+                <div>
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-50 text-brand-700 text-[11px] font-bold mb-1.5">
+                        <i class="fa-solid fa-user-shield"></i> Gerbang Akses Peran
+                    </span>
+                    <h3 class="font-display font-extrabold text-xl text-slate-900">Masuk Sesuai Peran</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Pilih peran Anda untuk membuka kunci layanan yang sesuai.</p>
+                </div>
+                <button type="button" onclick="closeRoleModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form onsubmit="confirmRoleSelection(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                        1. Pilih Peran Pengguna
+                    </label>
+                    <div class="space-y-2.5">
+                        <button type="button" onclick="selectPendingRole('operator')" id="btn-role-operator"
+                                class="role-option-btn w-full flex items-center justify-between p-3.5 rounded-2xl border-2 border-slate-200 hover:border-brand-500 hover:bg-brand-50/50 transition-all text-left cursor-pointer">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900">Operator / Kepala Sekolah</p>
+                                    <p class="text-xs text-slate-500">Akses penuh seluruh aplikasi sekolah</p>
+                                </div>
+                            </div>
+                            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-[10px] font-bold">PIN</span>
+                        </button>
+
+                        <button type="button" onclick="selectPendingRole('guru')" id="btn-role-guru"
+                                class="role-option-btn w-full flex items-center justify-between p-3.5 rounded-2xl border-2 border-slate-200 hover:border-teal-500 hover:bg-teal-50/50 transition-all text-left cursor-pointer">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-chalkboard-user"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900">Guru / Wali Kelas</p>
+                                    <p class="text-xs text-slate-500">Smart LMS, e-RAPOR, e-RDA, Monitoring & Infaq</p>
+                                </div>
+                            </div>
+                            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-[10px] font-bold">PIN</span>
+                        </button>
+
+                        <button type="button" onclick="selectPendingRole('siswa')" id="btn-role-siswa"
+                                class="role-option-btn w-full flex items-center justify-between p-3.5 rounded-2xl border-2 border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all text-left cursor-pointer">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-children"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900">Siswa / Wali Murid</p>
+                                    <p class="text-xs text-slate-500">Smart LMS & Info SPMB (Wajib PIN Wali)</p>
+                                </div>
+                            </div>
+                            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-[10px] font-bold">PIN</span>
+                        </button>
+
+                        <button type="button" onclick="selectPendingRole('umum')" id="btn-role-umum"
+                                class="role-option-btn w-full flex items-center justify-between p-3.5 rounded-2xl border-2 border-slate-200 hover:border-purple-500 hover:bg-purple-50/50 transition-all text-left cursor-pointer">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-globe"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900">Umum / Calon Wali Murid</p>
+                                    <p class="text-xs text-slate-500">Pendaftaran SPMB 2027/2028 (Tanpa PIN)</p>
+                                </div>
+                            </div>
+                            <span class="px-2 py-0.5 rounded bg-purple-100 text-purple-700 text-[10px] font-bold">Terbuka</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Input PIN (Untuk Operator, Guru, dan Wali Murid) -->
+                <div id="pin-container" class="hidden pt-1">
+                    <label for="role-pin-input" id="pin-label" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
+                        Masukkan Kode Akses / PIN
+                    </label>
+                    <input type="password" id="role-pin-input" placeholder="Masukkan PIN..." autocomplete="off"
+                           class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm font-medium">
+                    <p id="pin-error" class="hidden text-xs text-red-600 font-medium mt-2">
+                        <i class="fa-solid fa-circle-exclamation mr-1"></i> <span id="pin-error-text">Kode akses salah. Hubungi Operator SD IT AL-IQRA.</span>
+                    </p>
+                    <p class="text-[11px] text-slate-400 mt-2">
+                        <i class="fa-solid fa-shield-halved text-emerald-600 mr-1"></i> Terverifikasi langsung dengan database Google Sheets SD IT AL-IQRA.
+                    </p>
+                </div>
+
+                <div class="flex items-center gap-2.5 pt-2">
+                    <button type="submit" id="btn-submit-role"
+                            class="flex-1 py-3 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-bold transition-colors cursor-pointer flex items-center justify-center gap-2">
+                        <span id="btn-submit-text">Masuk & Buka Layanan</span>
+                    </button>
+                </div>
+
+                <!-- Tombol Logout / Kunci Ulang (Tampil hanya jika sudah login) -->
+                <div id="logout-section" class="hidden pt-3 border-t border-slate-100 text-center">
+                    <button type="button" onclick="logoutUserRole()"
+                            class="text-xs font-semibold text-red-600 hover:text-red-700 hover:underline cursor-pointer">
+                        <i class="fa-solid fa-right-from-bracket mr-1"></i> Keluar / Kunci Kembali Layanan
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- =========================================================================
+         MODAL 2: PANDUAN 2 TAHAP e-RAPOR ASAS -> e-RDA
+         ========================================================================= -->
+    <div id="rapor-flow-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs modal-backdrop">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-7 shadow-2xl border border-slate-100 modal-panel max-h-[92vh] overflow-y-auto">
+            <div class="flex items-start justify-between gap-3 mb-5">
+                <div>
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-bold mb-1.5">
+                        <i class="fa-solid fa-diagram-project"></i> Alur Integrasi Pengolahan Rapor
+                    </span>
+                    <h3 class="font-display font-extrabold text-xl text-slate-900">Pilih Tahap Pengolahan Rapor</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Pastikan Tahap 1 telah selesai sebelum menarik data pada Tahap 2.</p>
+                </div>
+                <button type="button" onclick="closeRaporFlowModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Tahap 1: e-RAPOR ASAS -->
+                <div class="p-4 sm:p-5 rounded-2xl border-2 border-amber-200 bg-amber-50/40">
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <span class="px-2.5 py-0.5 rounded-lg bg-amber-500 text-white text-[11px] font-extrabold">TAHAP 1 • GURU MAPEL & WALI KELAS</span>
+                    </div>
+                    <h4 class="font-display font-bold text-base text-slate-900">e-RAPOR ASAS (Input Nilai)</h4>
+                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                        Digunakan khusus untuk menginputkan nilai hasil Asesmen Sumatif Akhir Semester (ASAS) setiap mata pelajaran.
+                    </p>
+                    <button type="button" onclick="launchApp('https://sdit-aliqratirtamulya.github.io/asas_1_2627/', 'e-RAPOR ASAS')"
+                            class="mt-3.5 w-full py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                        <span>Buka e-RAPOR ASAS</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </button>
+                </div>
+
+                <!-- Panah Penghubung -->
+                <div class="flex items-center justify-center text-slate-400 text-xs font-semibold gap-2">
+                    <i class="fa-solid fa-arrow-down text-brand-600"></i>
+                    <span>Setelah nilai lengkap, lanjut tarik data ke e-RDA</span>
+                </div>
+
+                <!-- Tahap 2: e-RDA -->
+                <div class="p-4 sm:p-5 rounded-2xl border-2 border-brand-200 bg-brand-50/40">
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <span class="px-2.5 py-0.5 rounded-lg bg-brand-700 text-white text-[11px] font-extrabold">TAHAP 2 • WALI KELAS & OPERATOR</span>
+                    </div>
+                    <h4 class="font-display font-bold text-base text-slate-900">e-RDA (e-Rapor Digital Al-Iqra)</h4>
+                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                        Menarik nilai dari e-RAPOR ASAS, mengisi <strong>absensi, kokurikuler, ekstrakurikuler, catatan wali kelas</strong>, serta melakukan <strong>cetak rapor</strong>.
+                    </p>
+                    <button type="button" onclick="launchApp('https://sdit-aliqratirtamulya.github.io/erapor-ganjil/', 'e-RDA (e-Rapor Digital Al-Iqra)')"
+                            class="mt-3.5 w-full py-2.5 px-4 rounded-xl bg-brand-700 hover:bg-brand-800 text-white text-xs font-bold transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                        <span>Buka e-RDA Sekarang</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================================
+         MODAL 3: BANTUAN OPERATOR SEKOLAH
+         ========================================================================= -->
+    <div id="operator-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs modal-backdrop">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl border border-slate-100 modal-panel">
+            <div class="flex items-start justify-between gap-3 mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-2xl bg-brand-50 text-brand-700 flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-lg text-slate-900">Layanan Bantuan Operator</h3>
+                        <p class="text-xs text-slate-500">SD IT AL-IQRA Tirtamulya</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closeOperatorModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                Jika Anda mengalami kendala PIN akses, lupa akun Smart LMS / e-RDA, atau membutuhkan bantuan teknis pengisian rapor, silakan hubungi Operator Sekolah.
+            </p>
+
+            <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-200/80 text-xs text-slate-700 mb-5">
+                <div class="flex items-center justify-between">
+                    <span class="text-slate-500">Jam Layanan:</span>
+                    <span class="font-semibold">Senin - Sabtu (07.30 - 15.00 WIB)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-slate-500">Ruang Kerja:</span>
+                    <span class="font-semibold">Kantor Tata Usaha / Ruang Operator</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-2.5">
+                <a href="https://wa.me/6281200000000?text=Assalamu'alaikum%20Operator%20SD%20IT%20AL-IQRA,%20saya%20membutuhkan%20bantuan%20akses%20portal%20digital."
+                   target="_blank" rel="noopener noreferrer"
+                   class="flex-1 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>Chat WhatsApp</span>
+                </a>
+                <button type="button" onclick="closeOperatorModal()"
+                        class="py-3 px-5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold transition-colors cursor-pointer">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================================
+         MODAL 4: NOTIFIKASI KUSTOM (PENGGANTI alert() BAWAAN BROWSER)
+         ========================================================================= -->
+    <div id="notice-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs modal-backdrop">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-slate-100 text-center modal-panel">
+            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mx-auto mb-3">
+                <i class="fa-solid fa-circle-info"></i>
+            </div>
+            <h4 id="notice-title" class="font-display font-bold text-base text-slate-900">Informasi</h4>
+            <p id="notice-message" class="text-xs text-slate-600 mt-1.5 leading-relaxed"></p>
+            <button type="button" onclick="closeCustomNotice()"
+                    class="mt-5 w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-colors cursor-pointer">
+                Mengerti
+            </button>
+        </div>
+    </div>
+
+    <!-- =========================================================================
+         JAVASCRIPT LOGIC & INTEGRASI GOOGLE APPS SCRIPT
+         ========================================================================= -->
+    <script>
+        // =========================================================================
+        // KONFIGURASI BACKEND GOOGLE APPS SCRIPT (Ganti URL di bawah setelah Deploy)
+        // =========================================================================
+        const GAS_API_URL = 'https://script.google.com/macros/s/AKfycby0ZBwAqi1pDMDyAIxJj6W5XnIRKgOv6Fv3Ah6EjyD0mRPDCKduLrgsc5VB-T-DUUlg/exec';
+
+        const SESSION_STORAGE_KEY = 'sdit_aliqra_portal_role';
+
+        const ROLE_LABELS = {
+            operator: 'Peran: Operator / Kepsek',
+            guru: 'Peran: Guru / Wali Kelas',
+            siswa: 'Peran: Siswa / Wali Murid',
+            umum: 'Peran: Umum / SPMB'
+        };
+
+        const PIN_LABELS = {
+            operator: 'Masukkan PIN Operator / Kepala Sekolah',
+            guru: 'Masukkan PIN Guru / Wali Kelas',
+            siswa: 'Masukkan PIN Siswa / Wali Murid'
+        };
+
+        let currentCategory = 'all';
+        let currentQuery = '';
+        let currentUserRole = null; // null = Belum Login
+        let pendingUserRole = null;
+        let pendingTargetApp = null; // { type: 'rapor' | 'url', url?: string, name?: string }
+
+        // =========================================================================
+        // MANAJEMEN MODAL
+        // =========================================================================
+        function showModal(id) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.classList.remove('hidden');
+            el.classList.add('flex');
+        }
+
+        function hideModal(id) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.classList.add('hidden');
+            el.classList.remove('flex');
+        }
+
+        function openRoleModal() {
+            const logoutSection = document.getElementById('logout-section');
+            if (logoutSection) {
+                if (currentUserRole) {
+                    logoutSection.classList.remove('hidden');
+                } else {
+                    logoutSection.classList.add('hidden');
+                }
+            }
+            showModal('role-modal');
+        }
+
+        function closeRoleModal() {
+            hideModal('role-modal');
+        }
+
+        function openRaporFlowModal() {
+            if (!currentUserRole) {
+                pendingTargetApp = { type: 'rapor' };
+                openRoleModal();
+                return;
+            }
+            if (currentUserRole !== 'operator' && currentUserRole !== 'guru') {
+                showCustomNotice('Akses Terbatas', 'Layanan e-RAPOR ASAS & e-RDA hanya dapat diakses oleh Operator, Kepala Sekolah, dan Guru.');
+                return;
+            }
+            showModal('rapor-flow-modal');
+        }
+
+        function closeRaporFlowModal() {
+            hideModal('rapor-flow-modal');
+        }
+
+        function openOperatorModal() {
+            showModal('operator-modal');
+        }
+
+        function closeOperatorModal() {
+            hideModal('operator-modal');
+        }
+
+        function showCustomNotice(title, message) {
+            document.getElementById('notice-title').textContent = title;
+            document.getElementById('notice-message').textContent = message;
+            showModal('notice-modal');
+        }
+
+        function closeCustomNotice() {
+            hideModal('notice-modal');
+        }
+
+        // =========================================================================
+        // ALUR ROLE LOGIN & VERIFIKASI GOOGLE SHEETS
+        // =========================================================================
+        function selectPendingRole(role) {
+            pendingUserRole = role;
+            const pinContainer = document.getElementById('pin-container');
+            const pinLabel = document.getElementById('pin-label');
+            const pinInput = document.getElementById('role-pin-input');
+            const pinError = document.getElementById('pin-error');
+
+            document.querySelectorAll('.role-option-btn').forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-brand-500', 'bg-brand-50/40', 'border-brand-500');
+            });
+
+            const activeBtn = document.getElementById(`btn-role-${role}`);
+            if (activeBtn) {
+                activeBtn.classList.add('ring-2', 'ring-brand-500', 'bg-brand-50/40', 'border-brand-500');
+            }
+
+            if (pinError) pinError.classList.add('hidden');
+
+            if (role === 'operator' || role === 'guru' || role === 'siswa') {
+                pinContainer.classList.remove('hidden');
+                if (pinLabel) pinLabel.textContent = PIN_LABELS[role] || 'Masukkan Kode Akses / PIN';
+                pinInput.value = '';
+                pinInput.focus();
+            } else {
+                pinContainer.classList.add('hidden');
+            }
+        }
+
+        async function confirmRoleSelection(event) {
+            event.preventDefault();
+            if (!pendingUserRole) {
+                showCustomNotice('Pilih Peran', 'Silakan pilih peran Anda terlebih dahulu sebelum masuk.');
+                return;
+            }
+
+            const pinError = document.getElementById('pin-error');
+            const pinErrorText = document.getElementById('pin-error-text');
+            const submitBtn = document.getElementById('btn-submit-role');
+            const submitText = document.getElementById('btn-submit-text');
+
+            // Peran 'umum' (SPMB) dapat masuk tanpa PIN
+            if (pendingUserRole === 'umum') {
+                applyUserRole('umum');
+                return;
+            }
+
+            const enteredPin = document.getElementById('role-pin-input').value.trim();
+            if (!enteredPin) {
+                pinErrorText.textContent = 'Silakan masukkan PIN terlebih dahulu.';
+                pinError.classList.remove('hidden');
+                return;
+            }
+
+            if (!GAS_API_URL || GAS_API_URL.includes('PASTE_URL_WEB_APP')) {
+                pinErrorText.textContent = 'URL Web App Google Apps Script belum diatur di file index.html.';
+                pinError.classList.remove('hidden');
+                return;
+            }
+
+            pinError.classList.add('hidden');
+            submitBtn.disabled = true;
+            submitText.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Memverifikasi PIN...';
+
+            try {
+                const response = await fetch(GAS_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8'
+                    },
+                    body: JSON.stringify({
+                        role: pendingUserRole,
+                        pin: enteredPin
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    applyUserRole(pendingUserRole);
+                } else {
+                    pinErrorText.textContent = result.message || 'PIN salah. Hubungi Operator SD IT AL-IQRA.';
+                    pinError.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error('Error verifikasi GAS:', error);
+                pinErrorText.textContent = 'Gagal terhubung ke server verifikasi. Periksa koneksi internet Anda.';
+                pinError.classList.remove('hidden');
+            } finally {
+                submitBtn.disabled = false;
+                submitText.textContent = 'Masuk & Buka Layanan';
+            }
+        }
+
+        function applyUserRole(role, isRestoring = false) {
+            currentUserRole = role;
+
+            try {
+                sessionStorage.setItem(SESSION_STORAGE_KEY, role);
+            } catch (e) {
+                console.warn('Gagal menyimpan sesi:', e);
+            }
+
+            const roleBtn = document.getElementById('active-role-btn');
+            const roleIcon = document.getElementById('active-role-icon');
+            const roleLabelEl = document.getElementById('active-role-label');
+
+            if (roleLabelEl && roleBtn && roleIcon) {
+                roleLabelEl.textContent = ROLE_LABELS[role] || 'Sudah Login';
+                roleBtn.classList.remove('bg-amber-50', 'hover:bg-amber-100', 'text-amber-800', 'border-amber-200');
+                roleBtn.classList.add('bg-brand-50', 'hover:bg-brand-100', 'text-brand-800', 'border-brand-200');
+                roleIcon.className = 'fa-solid fa-circle-check text-brand-600';
+            }
+
+            closeRoleModal();
+            applyFilters();
+
+            // Jika sebelumnya pengguna mengklik kartu sebelum login, langsung lanjutkan aksinya
+            if (!isRestoring && pendingTargetApp) {
+                const target = pendingTargetApp;
+                pendingTargetApp = null;
+
+                if (target.type === 'rapor') {
+                    if (role === 'operator' || role === 'guru') {
+                        showModal('rapor-flow-modal');
+                    } else {
+                        showCustomNotice('Akses Ditolak', 'Peran Anda tidak memiliki hak akses ke e-RAPOR ASAS & e-RDA.');
+                    }
+                } else if (target.type === 'url' && target.url) {
+                    launchApp(target.url, target.name);
+                }
+            }
+        }
+
+        function logoutUserRole() {
+            currentUserRole = null;
+            pendingTargetApp = null;
+
+            try {
+                sessionStorage.removeItem(SESSION_STORAGE_KEY);
+            } catch (e) {
+                console.warn('Gagal menghapus sesi:', e);
+            }
+
+            const roleBtn = document.getElementById('active-role-btn');
+            const roleIcon = document.getElementById('active-role-icon');
+            const roleLabelEl = document.getElementById('active-role-label');
+
+            if (roleLabelEl && roleBtn && roleIcon) {
+                roleLabelEl.textContent = 'Belum Login (Klik Masuk)';
+                roleBtn.classList.remove('bg-brand-50', 'hover:bg-brand-100', 'text-brand-800', 'border-brand-200');
+                roleBtn.classList.add('bg-amber-50', 'hover:bg-amber-100', 'text-amber-800', 'border-amber-200');
+                roleIcon.className = 'fa-solid fa-lock text-amber-600';
+            }
+
+            closeRoleModal();
+            applyFilters();
+        }
+
+        // =========================================================================
+        // AKSI KARTU & PELUNCURAN APLIKASI
+        // =========================================================================
+        function handleCardAction(target, appName = '') {
+            if (!currentUserRole) {
+                if (target === 'rapor') {
+                    pendingTargetApp = { type: 'rapor' };
+                } else {
+                    pendingTargetApp = { type: 'url', url: target, name: appName };
+                }
+                openRoleModal();
+                return;
+            }
+
+            if (target === 'rapor') {
+                openRaporFlowModal();
+            } else {
+                launchApp(target, appName);
+            }
+        }
+
+        function launchApp(url, appName) {
+            try {
+                const newTab = window.open(url, '_blank', 'noopener,noreferrer');
+                if (!newTab || newTab.closed || typeof newTab.closed === 'undefined') {
+                    window.location.href = url;
+                }
+            } catch (err) {
+                console.error('Gagal membuka tautan aplikasi:', appName, err);
+                window.location.href = url;
+            }
+        }
+
+        // =========================================================================
+        // FILTER KATEGORI, PENCARIAN & PEMBARUAN TAMPILAN KARTU
+        // =========================================================================
+        function filterCategory(category) {
+            currentCategory = category;
+
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if (btn.dataset.cat === category) {
+                    btn.classList.add('active', 'bg-brand-700', 'text-white', 'shadow-xs', 'font-bold');
+                    btn.classList.remove('text-slate-600', 'hover:text-slate-900', 'hover:bg-slate-100', 'font-semibold');
+                } else {
+                    btn.classList.remove('active', 'bg-brand-700', 'text-white', 'shadow-xs', 'font-bold');
+                    btn.classList.add('text-slate-600', 'hover:text-slate-900', 'hover:bg-slate-100', 'font-semibold');
+                }
+            });
+
+            applyFilters();
+        }
+
+        function handleSearch(query) {
+            currentQuery = query.trim().toLowerCase();
+            applyFilters();
+        }
+
+        function resetFilters() {
+            currentQuery = '';
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) searchInput.value = '';
+            filterCategory('all');
+        }
+
+        function applyFilters() {
+            const cards = document.querySelectorAll('.app-card');
+            let visibleCount = 0;
+            let roleAccessibleCount = 0;
+
+            cards.forEach(card => {
+                const cardCat = card.dataset.category;
+                const allowedRoles = (card.dataset.allowedRoles || '').split(',');
+                const keywords = (card.dataset.keywords || '').toLowerCase();
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const desc = card.querySelector('p').textContent.toLowerCase();
+                const actionBtn = card.querySelector('.card-action-btn');
+
+                // Cek kecocokan peran (jika belum login, semua kartu tetap ditampilkan dalam status terkunci)
+                const isAllowedForRole = !currentUserRole || allowedRoles.includes(currentUserRole);
+                if (isAllowedForRole) roleAccessibleCount++;
+
+                // Perbarui tampilan tombol aksi di tiap kartu
+                if (actionBtn) {
+                    if (!currentUserRole) {
+                        actionBtn.innerHTML = '<i class="fa-solid fa-lock text-amber-400"></i><span>Login untuk Akses</span>';
+                    } else {
+                        actionBtn.innerHTML = '<span>Buka Aplikasi</span><i class="fa-solid fa-arrow-up-right-from-square"></i>';
+                    }
+                }
+
+                // Cek kecocokan kategori & kata kunci pencarian
+                const matchesCategory = currentCategory === 'all' || cardCat === currentCategory;
+                const matchesQuery = !currentQuery ||
+                                     title.includes(currentQuery) ||
+                                     desc.includes(currentQuery) ||
+                                     keywords.includes(currentQuery);
+
+                if (isAllowedForRole && matchesCategory && matchesQuery) {
+                    card.classList.remove('hidden');
+                    card.classList.add('flex');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                    card.classList.remove('flex');
+                }
+            });
+
+            // Perbarui penghitung pada tab "Semua Layanan"
+            const countAllEl = document.getElementById('count-all');
+            if (countAllEl) {
+                countAllEl.textContent = roleAccessibleCount;
+            }
+
+            // Perbarui petunjuk status peran
+            const hintEl = document.getElementById('role-status-hint');
+            if (hintEl) {
+                if (!currentUserRole) {
+                    hintEl.innerHTML = '<i class="fa-solid fa-circle-info text-amber-500"></i><span>Klik kartu layanan untuk memilih peran & membuka akses.</span>';
+                } else {
+                    hintEl.innerHTML = `<i class="fa-solid fa-shield-check text-brand-600"></i><span>Menampilkan layanan sesuai <strong>${ROLE_LABELS[currentUserRole]}</strong>.</span>`;
+                }
+            }
+
+            // Tampilkan/sembunyikan empty state
+            const emptyState = document.getElementById('empty-state');
+            if (emptyState) {
+                if (visibleCount === 0) {
+                    emptyState.classList.remove('hidden');
+                } else {
+                    emptyState.classList.add('hidden');
+                }
+            }
+        }
+
+        // Pulihkan sesi login jika sebelumnya sudah masuk di tab yang sama
+        (function restoreSavedRole() {
+            try {
+                const savedRole = sessionStorage.getItem(SESSION_STORAGE_KEY);
+                if (savedRole && ROLE_LABELS[savedRole]) {
+                    applyUserRole(savedRole, true);
+                    return;
+                }
+            } catch (e) {
+                console.warn('Gagal membaca sesi:', e);
+            }
+            applyFilters();
+        })();
+    </script>
+</body>
+</html>
